@@ -66,9 +66,10 @@ public class PlayerController : MonoBehaviour
         //If a box is currently being held, update the box's position
         if (grabbedBox != null)
         {
-            //Calculates the position the box should move towards
+            //Calculates the position the box should move towards, and then snaps the position to the grid
             Vector3 grabbedBoxPos = grabbedBox.GetComponent<Rigidbody>().position;
             Vector3 desiredPos = transform.position + grabbedBoxOffset;
+            desiredPos = new Vector3(Mathf.Round(desiredPos.x), Mathf.Round(desiredPos.y), Mathf.Round(desiredPos.z));
             
             //Sets the desired y position to the box y position so that it doesn't move vertically
             desiredPos.y = grabbedBoxPos.y;
@@ -79,7 +80,7 @@ public class PlayerController : MonoBehaviour
             //Add the player's movement speed to the box if it hasn't reached the desired position
             if (Vector3.Distance(desiredPos, grabbedBox.transform.position) > 0.1)
             {
-                grabbedBox.GetComponent<Rigidbody>().velocity = moveDir * speed * Vector3.Distance(desiredPos, grabbedBox.transform.position) * 3;
+                grabbedBox.GetComponent<Rigidbody>().velocity = moveDir * speed * Vector3.Distance(desiredPos, grabbedBox.transform.position) * 5;
             }
             
             //If the box is too far away, let go of it
@@ -119,6 +120,7 @@ public class PlayerController : MonoBehaviour
         {
             grabbedBox = closestBox;
             grabbedBoxOffset = grabbedBox.transform.position - transform.position;
+            grabbedBox.GetComponent<Rigidbody>().mass = 0;
         }
     }
 
@@ -127,6 +129,7 @@ public class PlayerController : MonoBehaviour
     {
         if (grabbedBox != null)
         {
+            grabbedBox.GetComponent<Rigidbody>().mass = 1;
             grabbedBox = null;
         }
     }
