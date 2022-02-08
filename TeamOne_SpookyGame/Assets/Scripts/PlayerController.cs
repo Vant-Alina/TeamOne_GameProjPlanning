@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     Vector3 grabbedBoxOffset;
     [SerializeField] float maxGrabDistance;
 
+    bool hasKey;
+    [SerializeField] GameObject keyProp;
+
     //Player rigidbody
     Rigidbody rb;
 
@@ -28,6 +31,7 @@ public class PlayerController : MonoBehaviour
         //Create a reference to the player rigidbody
         rb = GetComponent<Rigidbody>();
         grabbedBox = null;
+        hasKey = false;
     }
 
     // Update is called once per frame
@@ -38,7 +42,7 @@ public class PlayerController : MonoBehaviour
         moveDir.Normalize();
 
         //Checks to see if the player is holding the grab button or not
-        if (Input.GetButtonDown("Grab"))
+        if (Input.GetButtonDown("Grab") && !hasKey)
         {
             AttemptGrab();
         } else if (Input.GetButtonUp("Grab"))
@@ -91,6 +95,29 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        GameObject collidedObject = other.gameObject;
+
+        //If the collided trigger is a key, pick up that key and destroy the key on the map
+        if (collidedObject.tag == "Key")
+        {
+            GetKey();
+            Destroy(collidedObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        GameObject collidedObject = collision.gameObject;
+
+        //If the collided game object is a gate and the player has a key, open the gate
+        if (collidedObject.tag == "Gate" && hasKey)
+        {
+            collidedObject.GetComponent<Gate>().OpenGate();
+        }
+    }
+
     //Attempt to grab a box, if any are within reach
     void AttemptGrab()
     {
@@ -132,6 +159,15 @@ public class PlayerController : MonoBehaviour
             grabbedBox.GetComponent<Rigidbody>().mass = 1;
             grabbedBox = null;
         }
+    }
+
+    //Makes the player unable to move boxes, and gives them a key.
+    void GetKey()
+    {
+        keyProp.SetActive(true);
+        hasKey = true;
+        LetGo();
+        rb.mass = 0;
     }
 
 
