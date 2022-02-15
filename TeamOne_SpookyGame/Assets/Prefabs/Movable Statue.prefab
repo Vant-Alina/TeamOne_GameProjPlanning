@@ -188,12 +188,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 7b253a247e464e9418b6f55d33dfdcab, type: 2}
     - target: {fileID: 919132149155446097, guid: ed4ee47ab357084418ef5f5da23b9887, type: 3}
       propertyPath: m_Name
-      value: eeee
+      value: Statue
       objectReference: {fileID: 0}
     - target: {fileID: 6589126927893049898, guid: ed4ee47ab357084418ef5f5da23b9887, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 887da12db1e077748b0d5865364505ff, type: 2}
+      objectReference: {fileID: 2100000, guid: 32051b45f90f52e4c84d09aa75f2edc4, type: 2}
     - target: {fileID: 7907651539617210557, guid: ed4ee47ab357084418ef5f5da23b9887, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

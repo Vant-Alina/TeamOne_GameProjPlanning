@@ -182,7 +182,7 @@ PrefabInstance:
     - target: {fileID: -8996981072426771164, guid: b2872f0507de7b348b7efea1354ae1fc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b3e83a799e63f804f895e8963efb8ae0, type: 2}
+      objectReference: {fileID: 2100000, guid: 4839ad242bb694845895229dfd1023a7, type: 2}
     - target: {fileID: -8996981072426771164, guid: b2872f0507de7b348b7efea1354ae1fc, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
@@ -190,7 +190,7 @@ PrefabInstance:
     - target: {fileID: -8996981072426771164, guid: b2872f0507de7b348b7efea1354ae1fc, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: b3e83a799e63f804f895e8963efb8ae0, type: 2}
+      objectReference: {fileID: 2100000, guid: d35c4960841856a44b30750b06a34e0b, type: 2}
     - target: {fileID: -8996981072426771164, guid: b2872f0507de7b348b7efea1354ae1fc, type: 3}
       propertyPath: m_Materials.Array.data[3]
       value: 
@@ -246,6 +246,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b2872f0507de7b348b7efea1354ae1fc, type: 3}
       propertyPath: m_Name
       value: Gates
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093799667422399937, guid: b2872f0507de7b348b7efea1354ae1fc, type: 3}
+      propertyPath: m_Name
+      value: inner
+      objectReference: {fileID: 0}
+    - target: {fileID: 7128513842297302100, guid: b2872f0507de7b348b7efea1354ae1fc, type: 3}
+      propertyPath: m_Name
+      value: outer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2872f0507de7b348b7efea1354ae1fc, type: 3}
