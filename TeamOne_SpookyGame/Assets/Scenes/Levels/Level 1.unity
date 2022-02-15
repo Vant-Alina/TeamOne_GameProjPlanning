@@ -257,7 +257,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 318254616209ff4428fb53b4444dddbd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -296,7 +296,7 @@ Transform:
   m_GameObject: {fileID: 67357046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.05, z: 0}
-  m_LocalScale: {x: 25.720499, y: 0.1, z: 21.9435}
+  m_LocalScale: {x: 40, y: 0.1, z: 40}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -4781,6 +4781,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 37365661621742801, guid: a0a239d1ee27b834da5deffe5fd08a51, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 88ebd13e204102548ae152998bfc375e, type: 2}
     - target: {fileID: 37365661621742807, guid: a0a239d1ee27b834da5deffe5fd08a51, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -4914,6 +4918,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6901902894514639802, guid: 94c7048b735d66f4980e6e018863972b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 318254616209ff4428fb53b4444dddbd, type: 2}
     - target: {fileID: 6901902894514639804, guid: 94c7048b735d66f4980e6e018863972b, type: 3}
       propertyPath: m_Name
       value: Gate
