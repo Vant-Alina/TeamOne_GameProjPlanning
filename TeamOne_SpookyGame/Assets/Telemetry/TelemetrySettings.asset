@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa188ed3cd5ee314b91a17c5c707da0a, type: 3}
   m_Name: TelemetrySettings
   m_EditorClassIdentifier: 
-  userName: Your Sheridan user name or group name
-  secret: Your student # or group passphrase
+  userName: Team Team 1
+  secret: assembly plan
   _version: 1.0
   _serverURL: https://dd-telemetry.herokuapp.com/
-  serverCommunication: 0
+  serverCommunication: 1
   debugLogging: 0

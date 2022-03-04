@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
+    public Timer timer;
+
     [SerializeField] string sceneName;
 
     //If the trigger collides with the player, load the next level
@@ -12,6 +14,7 @@ public class Goal : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             NextLevel();
+            TelemetryLogger.Log(this, "Time Spent", timer.CalculateTimeSpent());
         }
     }
 
