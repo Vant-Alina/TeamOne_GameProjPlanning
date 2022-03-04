@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour
     public float CalculateTimeSpent()
     {
         currentTime = Time.time;
-        return (currentTime - timeAtStart)/60;
+        return (currentTime - timeAtStart);
     }
 
     // Update is called once per frame
