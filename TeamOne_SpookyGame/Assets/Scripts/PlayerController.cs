@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float maxGrabDistance;
 
     bool hasKey;
+
+   
+
     [SerializeField] GameObject keyProp;
 
     //Player rigidbody
@@ -25,6 +28,8 @@ public class PlayerController : MonoBehaviour
 
     //The direction the player is moving
     Vector2 moveDir;
+
+   
 
     void Start()
     {
@@ -34,9 +39,21 @@ public class PlayerController : MonoBehaviour
         hasKey = false;
     }
 
+    float secondsToNextLog = 0;
+
     // Update is called once per frame
     void Update()
     {
+        secondsToNextLog -= Time.deltaTime;
+
+        if (secondsToNextLog <= 0)
+        {
+            TelemetryLogger.Log(this, "Position", transform.position);
+            secondsToNextLog += 1f;
+        }
+
+        
+
         //Gets the direction the player should move
         moveDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         moveDir.Normalize();
@@ -54,6 +71,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        
 
         //If the player isn't moving, add artificial friction
         if (moveDir.magnitude == 0)
