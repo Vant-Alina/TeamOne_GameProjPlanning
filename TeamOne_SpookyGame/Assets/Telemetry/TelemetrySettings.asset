@@ -16,5 +16,5 @@ MonoBehaviour:
   secret: assembly plan
   _version: 1.1
   _serverURL: https://dd-telemetry.herokuapp.com/
-  serverCommunication: 1
+  serverCommunication: 2
   debugLogging: 0
