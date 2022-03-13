@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   userName: Team Team 1
   secret: assembly plan
-  _version: 1.0
+  _version: 1.1
   _serverURL: https://dd-telemetry.herokuapp.com/
   serverCommunication: 1
   debugLogging: 0
