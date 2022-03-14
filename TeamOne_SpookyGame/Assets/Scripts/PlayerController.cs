@@ -67,6 +67,12 @@ public class PlayerController : MonoBehaviour
             LetGo();
         }
 
+        if (Input.GetButtonDown("Reset"))
+        {
+            GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>().LoadNextLevel();
+            TelemetryLogger.Log(this, "Level Reset");
+        }
+
     }
 
     void FixedUpdate()
