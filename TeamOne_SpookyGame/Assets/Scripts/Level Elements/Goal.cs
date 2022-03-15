@@ -13,8 +13,9 @@ public class Goal : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            TelemetryLogger.Log(this, "Time Spent before beating level", timer.CalculateTimeSpent());
             NextLevel();
-            TelemetryLogger.Log(this, "Time Spent", timer.CalculateTimeSpent());
+            
         }
     }
 

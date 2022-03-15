@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     bool hasKey;
 
-   
+    public Timer timer;
 
     [SerializeField] GameObject keyProp;
 
@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>().LoadNextLevel();
             TelemetryLogger.Log(this, "Level Reset");
+            TelemetryLogger.Log(this, "Time Spent before restarting", timer.CalculateTimeSpent());
         }
 
     }
