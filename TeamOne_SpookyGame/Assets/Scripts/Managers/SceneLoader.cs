@@ -11,6 +11,8 @@ public class SceneLoader : MonoBehaviour
     //Keeps track of what level should be loaded
     int currentLevel = 0;
 
+    float timer = 0;
+
     //Keeps track of all of the levels
     [SerializeField] string[] Levels;
     
@@ -29,6 +31,11 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        timer += Time.deltaTime;
+    }
+
     //Loads the selected level
     public void LoadNextLevel()
     {
@@ -40,5 +47,7 @@ public class SceneLoader : MonoBehaviour
     public void IncrementLevel()
     {
         currentLevel++;
+        TelemetryLogger.Log(this, "Total seconds spent between resets", timer);
+        timer = 0;
     }
 }
