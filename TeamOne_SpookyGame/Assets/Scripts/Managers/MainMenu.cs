@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     public void startGame()
     {
         //Loads the first level
+        GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>().ResetTimer();
         GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>().LoadNextLevel();
     }
 }

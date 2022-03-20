@@ -22,9 +22,14 @@ public class Goal : MonoBehaviour
     //Loads the next level
     void NextLevel()
     {
+        SceneLoader sceneLoader = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
+
         //Switches to the next level in the list
-        GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>().IncrementLevel();
+        sceneLoader.IncrementLevel();
+
+        TelemetryLogger.Log(this, "Total seconds spent between resets", sceneLoader.GetTotalTime());
+        sceneLoader.ResetTimer();
         //Loads the level
-        GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>().LoadNextLevel();
+        sceneLoader.LoadNextLevel();
     }
 }
