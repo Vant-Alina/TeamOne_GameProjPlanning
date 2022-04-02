@@ -9,6 +9,13 @@ public class Gate : MonoBehaviour
     [SerializeField] Material gateOpen;
 
     BoxCollider myBoxCollider;
+
+    AudioManager AM;
+
+    private void Awake()
+    {
+        AM = FindObjectOfType<AudioManager>();
+    }
     private void Start()
     {
         myBoxCollider = gameObject.GetComponent<BoxCollider>();
@@ -17,6 +24,7 @@ public class Gate : MonoBehaviour
     public void OpenGate()
     {
         myBoxCollider.enabled = false;
+        AM.PlaySFX("GateOpen");
         gameObject.GetComponent<MeshRenderer>().material = gateOpen;
     }
 

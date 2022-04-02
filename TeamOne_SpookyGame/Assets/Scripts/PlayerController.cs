@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     //Controls the player's max speed
     [SerializeField] float speed;
+    AudioManager AM;
 
     //Controls how much friction there is when the player is slowing down
     [SerializeField] float frictionAmnt;
@@ -29,7 +30,10 @@ public class PlayerController : MonoBehaviour
     //The direction the player is moving
     Vector2 moveDir;
 
-   
+    void Awake()
+    {
+        AM = FindObjectOfType<AudioManager>();
+    }
 
     void Start()
     {
@@ -69,6 +73,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Reset"))
         {
+            AM.PlaySFX("Reset");
             GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>().LoadNextLevel();
             TelemetryLogger.Log(this, "Level Reset");
             TelemetryLogger.Log(this, "Time Spent before restarting", timer.CalculateTimeSpent());
@@ -173,6 +178,7 @@ public class PlayerController : MonoBehaviour
             grabbedBox = closestBox;
             grabbedBoxOffset = grabbedBox.transform.position - transform.position;
             grabbedBox.GetComponent<Rigidbody>().mass = 0;
+            AM.PlaySFX("Grab");
         }
     }
 
@@ -189,6 +195,7 @@ public class PlayerController : MonoBehaviour
     //Makes the player unable to move boxes, and gives them a key.
     void GetKey()
     {
+        AM.PlaySFX("GetKey");
         keyProp.SetActive(true);
         hasKey = true;
         LetGo();
